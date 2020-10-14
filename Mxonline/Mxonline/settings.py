@@ -1,10 +1,11 @@
 
 
 import os
+import sys
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+sys.path.insert(1, os.path.join(BASE_DIR, 'extra_apps'))
 
 SECRET_KEY = '(ho3!z^y*-wnfvo%wq)@7$23*+hp%#@%@*$p5_y#ss@3)*_(g$'
 
@@ -22,6 +23,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'xadmin',
+    'crispy_forms',
+    'reversion',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +63,7 @@ WSGI_APPLICATION = 'Mxonline.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "mxonline_project",
+        'NAME': "git_mxonline_project",
         "USER":"root",
         "PASSWORD":"123456",
         "HOST":"127.0.0.1"
@@ -93,7 +98,6 @@ USE_L10N = True
 USE_TZ = False
 
 
-STATIC_URL = '/static/'
 STATIC_URL = '/static/'
 #staticfile 把静态文件(CSS、JS)拿出来、需要配置路径
 STATICFILES_DIRS = [
